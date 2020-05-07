@@ -9,21 +9,31 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Getter
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Restaurant implements StructureService {
-    static Restaurant instance = new Restaurant();
-
+    static  Restaurant instance = new Restaurant();
     Long id;
     String name;
     String address;
     String specialtyOfTheHouse;
     String page;
 
+
+/*
+    public Restaurant(){
+        id = 1L;
+        name = "navat";
+        address = "192.018.13";
+        specialtyOfTheHouse = "fish";
+        page = "localhost:666";
+    }*/
+
     public static Restaurant getInstance(){
-        if (instance == null){
+        if (!(instance == null)){
             instance = new Restaurant(
                     1L,
                     "navat",
@@ -34,8 +44,8 @@ public class Restaurant implements StructureService {
         return instance;
     }
 
-    @Override
-    public Restaurant getInfo() {
-        return getInstance();
-    }
+/*       public static StructureService getInfo(){
+           return getInstance();
+       }*/
+
 }
